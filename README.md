@@ -12,9 +12,51 @@
    ```
    npm run build-storybook
    ```
-4. code preview 애드온 설치
+## code 미리보기 추가하기
+1. storysource 애드온 설치
    ```
-   npm i --save-dev storybook-addon-code-preview
+   npm install @storybook/addon-storysource --save-dev
+   ```
+2. .storybook/main.js 다음과 같이 수정하기
+   ```
+   /** @type { import('@storybook/react-webpack5').StorybookConfig } */
+   const path = require('path');
+
+   const config = {
+   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+   addons: [
+      "@storybook/addon-links",
+      "@storybook/addon-essentials",
+      "@storybook/preset-create-react-app",
+      "@storybook/addon-onboarding",
+      "@storybook/addon-interactions",
+      "@storybook/addon-storysource" // 애드온 추가
+   ],
+   framework: {
+      name: "@storybook/react-webpack5",
+      options: {
+         builder: {
+         useSWC: true,
+         },
+      },
+   },
+   docs: {
+      autodocs: "tag",
+   },
+   staticDirs: ["../public"],
+   webpackFinal: async (config) => {
+      config.module.rules.push({
+         test: /\.stories\.@(js|jsx|mjs|ts|tsx)$/,
+         use: [{ loader: require.resolve('@storybook/source-loader') }],
+         enforce: 'pre',
+         include: [path.resolve(__dirname, '../src')],
+      });
+   
+      return config;
+   },
+   
+   };
+   export default config;
    ```
 
 ## 주의사항
