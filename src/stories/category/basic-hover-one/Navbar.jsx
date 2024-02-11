@@ -3,7 +3,7 @@ import './navbar.css'; // 가정: Navbar 컴포넌트의 스타일을 정의하�
 
 const Navbar = () => {
   return (
-    <header id="hd" class="bg-check">
+    <header id="hd_hoverone" class="bg-check">
       <div class="container d-flex jcb rel h-100px">
         <h1 class="d-flex aic">
           <a href=""><img src="" alt="" />LOGO</a>
