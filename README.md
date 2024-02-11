@@ -3,7 +3,7 @@ UI 요소 중 가장 까다롭고 중요한 요소인 네비바.
 네비바 전문 스토리북입니다.
 
 ## 배포주소
-
+https://navbarstory.netlify.app/
 
 ## 명령어
 
