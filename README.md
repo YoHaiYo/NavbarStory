@@ -5,6 +5,9 @@ UI 요소 중 가장 까다롭고 중요한 요소인 네비바.
 ## 배포주소
 https://navbarstory.netlify.app/
 
+## Preview
+![image](https://github.com/YoHaiYo/NavbarStory/assets/124754510/49ea101c-e33f-4274-9c15-4e2340ce8df1)
+
 ## 명령어
 
 1. 설치
